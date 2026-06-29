@@ -152,12 +152,20 @@ python app.py
 
 ---
 
-## 👨‍💻 Author
+👨‍💻 Project Maintainer
 
-**Mathi Bala M**
-
+Mathi Bala M (Team Lead)
 Cyber Security Engineer | Machine Learning Enthusiast | Building Secure Digital Solutions
 
+🤝 Team Members
+
+This project was developed collaboratively by:
+
+Mathi Bala M (Team Lead)
+Aravind M
+Sangaiya P
+
+All members contributed equally to the design, development, and implementation of the project.
 📧 Email: mathibalam62@gmail.com
 
 🔗 LinkedIn:
