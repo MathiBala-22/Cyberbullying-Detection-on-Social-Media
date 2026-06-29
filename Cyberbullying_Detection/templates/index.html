@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cyberbullying Detection System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:#00e5ff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image:
+    linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
+    background-size:40px 40px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    background:rgba(0,0,0,0.7);
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 0 25px #00e5ff;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:3rem;
+    color:#00e5ff;
+    text-shadow:0 0 20px #00e5ff;
+}
+
+.header p{
+    color:#999;
+    margin-top:10px;
+}
+
+textarea{
+    width:100%;
+    height:180px;
+    background:#02040f;
+    border:2px solid #00e5ff;
+    border-radius:12px;
+    color:white;
+    font-size:16px;
+    padding:15px;
+    resize:none;
+}
+
+textarea:focus{
+    outline:none;
+    box-shadow:0 0 15px #00e5ff;
+}
+
+.btn{
+    margin-top:20px;
+    padding:15px 35px;
+    border:none;
+    border-radius:10px;
+    background:#00e5ff;
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00e5ff;
+}
+
+.result{
+    margin-top:30px;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.safe{
+    border:2px solid #00ff66;
+    color:#00ff66;
+    box-shadow:0 0 15px #00ff66;
+}
+
+.danger{
+    border:2px solid #ff004c;
+    color:#ff004c;
+    box-shadow:0 0 15px #ff004c;
+}
+
+.footer{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+    color:#aaa;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>CYBERBULLYING DETECTION</h1>
+        <p>NLP Based Social Media Threat Analysis</p>
+    </div>
+
+    <form method="POST">
+
+        <textarea
+        name="comment"
+        placeholder="Enter social media comment here..."></textarea>
+
+        <button type="submit" class="btn">
+            ANALYZE TEXT
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+        {% if "Non" in prediction %}
+
+        <div class="result safe">
+            ✅ {{ prediction }}
+        </div>
+
+        {% else %}
+
+        <div class="result danger">
+            🚨 {{ prediction }}
+        </div>
+
+        {% endif %}
+
+    {% endif %}
+
+    <div class="footer">
+        <span>Model: SVM + TF-IDF</span>
+        <span>Dataset: Kaggle</span>
+        <span>Accuracy: 96.06%</span>
+    </div>
+
+</div>
+
+</body>
+</html>
